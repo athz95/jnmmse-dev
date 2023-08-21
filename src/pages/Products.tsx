@@ -8,7 +8,7 @@ import styled from 'styled-components'
 import Product from '../components/Product'
 import ProductSidebar from '../components/ProductSidebar'
 import Spinner from '../components/Spinner'
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 import { client } from "../client";
 import { feedQuery } from "../utils/categoryData";
 
@@ -22,7 +22,7 @@ type productTypes = {
 
 const Products = () => {
     const [loading, setLoading] = useState(false);
-    const [products, setProducts] = useState([]);
+    // const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([])
 
     // const { id } = useParams();
@@ -47,7 +47,7 @@ const Products = () => {
     useEffect(() => {
         setLoading(true);
         client.fetch(feedQuery).then((data) => {
-            setProducts(data);
+            // setProducts(data);
             setFilteredProducts(data);
             setLoading(false);
         }).catch((err) => console.error(err));
