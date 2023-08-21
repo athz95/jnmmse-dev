@@ -27,6 +27,23 @@ const Products = () => {
 
     const { id } = useParams();
 
+    const filterProductsByCategoryTitle = (products: any, categoryTitle: any) => {
+        return products.filter((product: { category: string | any[] }) => {
+            return product.category.includes(categoryTitle);
+        });
+    };
+
+
+    const handleCategoryFilter = (categoryId: any) => {
+        if (categoryId) {
+            const filteredProducts = filterProductsByCategoryTitle(products, categoryId);
+            setFilteredProducts(filteredProducts);
+        } else {
+            // Reset the filteredProducts array if no category is selected
+            setFilteredProducts(products);
+        }
+    };
+
     useEffect(() => {
         setLoading(true);
         client.fetch(feedQuery).then((data) => {
@@ -38,23 +55,10 @@ const Products = () => {
 
     useEffect(() => {
         handleCategoryFilter(id);
-    }, [])
+    }, [id, handleCategoryFilter])
 
-    const filterProductsByCategoryTitle = (products: any, categoryTitle: any) => {
-        return products.filter((product: { category: string | any[] }) => {
-            return product.category.includes(categoryTitle);
-        });
-    };
 
-    const handleCategoryFilter = (categoryId: any) => {
-        if (categoryId) {
-            const filteredProducts = filterProductsByCategoryTitle(products, categoryId);
-            setFilteredProducts(filteredProducts);
-        } else {
-            // Reset the filteredProducts array if no category is selected
-            setFilteredProducts(products);
-        }
-    };
+
 
 
 
