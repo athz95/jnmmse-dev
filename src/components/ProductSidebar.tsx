@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import styled from 'styled-components'
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { productCategoryQuery } from '../utils/categoryData';
 import { client } from '../client';
 

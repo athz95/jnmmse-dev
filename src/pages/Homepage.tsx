@@ -1,22 +1,22 @@
 //component imports
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { BodyWrapper, DescText, EdwoBtn, EdwoBtnHeight, MainWrapper, SecHead } from '../components/commonStyles'
+import { BodyWrapper, EdwoBtn, MainWrapper } from '../components/commonStyles'
 import Header from '../components/Header'
 
 
 
 //image imports
 import LandingBanner from "../images/homepage-landing-doc.png";
-import AboutUsBg1 from "../images/homepage-bg-color-2.png"
-import AboutUsBg2 from "../images/homepage-bg-color.png"
-import WhatWeDoBg from "../images/homepage-bg-colors.png"
+// import AboutUsBg1 from "../images/homepage-bg-color-2.png"
+// import AboutUsBg2 from "../images/homepage-bg-color.png"
+// import WhatWeDoBg from "../images/homepage-bg-colors.png"
 import ProductCategoryDOc from "../images/ProductCategoryDOc.jpg"
-import Testimonials from '../components/Testimonials';
+// import Testimonials from '../components/Testimonials';
 import ContactDetails from '../components/ContactDetails';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 import FooterHeader from '../components/FooterHeader';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import ProductEnquiry from '../components/ProductEnquiry';
 import HomepageBox from '../components/HomepageBox';
 import Product from '../components/Product';

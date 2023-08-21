@@ -50,7 +50,7 @@ const ContactDetails = (props: Props) => {
             </ContactDetailsSecs>
         </ContactDetailsLeft>
         <ContactDetailsRight>
-           <iframe src="https://www.google.com/maps/embed/v1/place?q=Hor+Al+Anz+-+Dubai+-+United+Arab+Emirates&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" width="100%" height="450" style={{border:"0"}} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+           <iframe src="https://www.google.com/maps/embed/v1/place?q=Hor+Al+Anz+-+Dubai+-+United+Arab+Emirates&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" title="maps" width="100%" height="450" style={{border:"0"}} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </ContactDetailsRight>
     </ContactDetailsWrapper>
   )

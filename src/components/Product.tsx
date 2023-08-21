@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import AboutUs3c from "../images/about-us3c.png"
+// import AboutUs3c from "../images/about-us3c.png"
 
 
 type Props = {

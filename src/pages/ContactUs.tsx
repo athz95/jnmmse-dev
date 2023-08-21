@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BackBtn, BodyWrapper, EdwoBtn, MainWrapper, SecHead } from '../components/commonStyles'
+import { BodyWrapper, EdwoBtn, MainWrapper, SecHead } from '../components/commonStyles'
 import ContactDetails from '../components/ContactDetails'
-import Footer from "../components/Footer"
+// import Footer from "../components/Footer"
 import Header from '../components/Header'
 import { ContactDetailsWrapper } from './Homepage'
 import { useNavigate } from 'react-router-dom'
@@ -17,7 +17,7 @@ import FooterHeader from "../components/FooterHeader"
 type Props = {}
 
 const ContactUs = (props: Props) => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     return (
         <MainWrapper>

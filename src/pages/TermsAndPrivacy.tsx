@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BackBtn, BodyWrapper, EdwoBtn, MainWrapper, SecHead } from '../components/commonStyles'
+import { BackBtn, BodyWrapper, MainWrapper } from '../components/commonStyles'
 import ContactDetails from '../components/ContactDetails'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
@@ -10,8 +10,8 @@ import { useNavigate } from 'react-router-dom'
 //image imports
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AboutColorBg from "../images/about-us-colors-bg.png" 
-import ContactUuRightBg from "../images/contact-us-right-bg2.png"
-import FooterHeader from '../components/FooterHeader'
+// import ContactUuRightBg from "../images/contact-us-right-bg2.png"
+// import FooterHeader from '../components/FooterHeader'
 
 
 type Props = {}

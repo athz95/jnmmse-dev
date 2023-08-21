@@ -1,12 +1,11 @@
-import React from 'react'
 import styled from 'styled-components'
-import { BackBtn, BodyWrapper, EdwoBtn, MainWrapper, SecHead } from '../components/commonStyles'
+import { BodyWrapper, EdwoBtn, MainWrapper, SecHead } from '../components/commonStyles'
 import ContactDetails from '../components/ContactDetails'
-import Footer from '../components/Footer'
+// import Footer from '../components/Footer'
 import Header from '../components/Header'
-import Testimonials from '../components/Testimonials'
+// import Testimonials from '../components/Testimonials'
 import { useNavigate } from 'react-router-dom'
-import { ContactDetailsWrapper, TestimonialWrapper, } from './Homepage'
+import { ContactDetailsWrapper} from './Homepage'
 
 //image imports
 // import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -15,20 +14,20 @@ import AboutLeftBg from "../images/AboutUsLanding.png"
 import AboutUs1c from "../images/about-us1c.png"
 import AboutUs2c from "../images/about-us2c.png"
 import AboutUs3c from "../images/about-us3c.png"
-import AboutUsBg1 from "../images/homepage-bg-color-2.png"
-import AboutUsBg2 from "../images/homepage-bg-color.png"
-import AboutUsMainBg from "../images/about-us-providing-optium.png"
-import AboutUsThirdBg from "../images/about-us-third-bg.png"
-import TrainingImg from "../images/training.png"
-import SylabusImg from "../images/sylabus.png"
-import Timing from "../images/timings.png"
-import AboutUsThirdRightImg from "../images/about-us-why-should.png"
+// import AboutUsBg1 from "../images/homepage-bg-color-2.png"
+// import AboutUsBg2 from "../images/homepage-bg-color.png"
+// import AboutUsMainBg from "../images/about-us-providing-optium.png"
+// import AboutUsThirdBg from "../images/about-us-third-bg.png"
+// import TrainingImg from "../images/training.png"
+// import SylabusImg from "../images/sylabus.png"
+// import Timing from "../images/timings.png"
+// import AboutUsThirdRightImg from "../images/about-us-why-should.png"
 import FooterHeader from '../components/FooterHeader'
 
 type Props = {}
 
 const AboutUs = (props: Props) => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
 
     return (
