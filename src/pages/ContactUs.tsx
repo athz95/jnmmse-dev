@@ -5,7 +5,7 @@ import ContactDetails from '../components/ContactDetails'
 // import Footer from "../components/Footer"
 import Header from '../components/Header'
 import { ContactDetailsWrapper } from './Homepage'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 //image imports
 // import ArrowBackIcon from '@mui/icons-material/ArrowBack';

@@ -38,7 +38,7 @@ const Products = () => {
 
     useEffect(() => {
         handleCategoryFilter(id);
-    }, [id])
+    }, [])
 
     const filterProductsByCategoryTitle = (products: any, categoryTitle: any) => {
         return products.filter((product: { category: string | any[] }) => {
