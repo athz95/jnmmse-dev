@@ -25,24 +25,24 @@ const Products = () => {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([])
 
-    const { id } = useParams();
+    // const { id } = useParams();
 
-    const filterProductsByCategoryTitle = (products: any, categoryTitle: any) => {
-        return products.filter((product: { category: string | any[] }) => {
-            return product.category.includes(categoryTitle);
-        });
-    };
+    // const filterProductsByCategoryTitle = (products: any, categoryTitle: any) => {
+    //     return products.filter((product: { category: string | any[] }) => {
+    //         return product.category.includes(categoryTitle);
+    //     });
+    // };
 
 
-    const handleCategoryFilter = (categoryId: any) => {
-        if (categoryId) {
-            const filteredProducts = filterProductsByCategoryTitle(products, categoryId);
-            setFilteredProducts(filteredProducts);
-        } else {
-            // Reset the filteredProducts array if no category is selected
-            setFilteredProducts(products);
-        }
-    };
+    // const handleCategoryFilter = (categoryId: any) => {
+    //     if (categoryId) {
+    //         const filteredProducts = filterProductsByCategoryTitle(products, categoryId);
+    //         setFilteredProducts(filteredProducts);
+    //     } else {
+    //         // Reset the filteredProducts array if no category is selected
+    //         setFilteredProducts(products);
+    //     }
+    // };
 
     useEffect(() => {
         setLoading(true);
@@ -53,9 +53,9 @@ const Products = () => {
         }).catch((err) => console.error(err));
     }, []);
 
-    useEffect(() => {
-        handleCategoryFilter(id);
-    }, [id, handleCategoryFilter])
+    // useEffect(() => {
+    //     handleCategoryFilter(id);
+    // }, [id,])
 
 
 
