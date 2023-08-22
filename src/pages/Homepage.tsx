@@ -7,11 +7,11 @@ import Header from '../components/Header'
 
 
 //image imports
-import LandingBanner from "../images/homepage-landing-doc.png";
-// import AboutUsBg1 from "../images/homepage-bg-color-2.png"
-// import AboutUsBg2 from "../images/homepage-bg-color.png"
-// import WhatWeDoBg from "../images/homepage-bg-colors.png"
-import ProductCategoryDOc from "../images/ProductCategoryDOc.jpg"
+// import LandingBanner from "../images/homepage-landing-doc.png";
+import productCategoryBg from "../images/productCategoryBg.png"
+import homepageABstract from "../images/homepageABstract.jpg"
+import homepageLandingImg from "../images/homepageLandingImg.png"
+// import ProductCategoryDOc from "../images/ProductCategoryDOc.jpg"
 // import Testimonials from '../components/Testimonials';
 import ContactDetails from '../components/ContactDetails';
 // import Footer from '../components/Footer';
@@ -74,7 +74,7 @@ const Homepage = () => {
             </ProductEnquiryWrapper>
           </LandingLeft>
           <LandingRight>
-            <img src={LandingBanner} alt="logo" />
+            <img src={homepageLandingImg} alt="logo" />
           </LandingRight>
         </HomepageLandingWrapper>
         <HomepageSecondaryWrapper>
@@ -89,9 +89,8 @@ const Homepage = () => {
             <h3>Product Range</h3>
             <div className='product-range-wrap'>
               <ProductCategorySecLeft>
-                <img src={ProductCategoryDOc} alt="" />
-              </ProductCategorySecLeft>
-              <ProductCategoryList>
+                {/* <img src={ProductCategoryDOc} alt="" /> */}
+                <ProductCategoryList>
                 <ProductCategoryBox>
                   <GeneralMedicineIcon />
                   <h5>General Medical Devices</h5>
@@ -124,6 +123,8 @@ const Homepage = () => {
                   <h5>Other Products</h5>
                 </ProductCategoryBox>
               </ProductCategoryList>
+              </ProductCategorySecLeft>
+ 
             </div>
         </ProductCategorySection>
 
@@ -198,14 +199,14 @@ const HomepageLandingWrapper = styled.div`
   }
 `
 const LandingLeft = styled.div`
-   width: 60%;
+   width: 50%;
 
    @media screen and (max-width: 900px) {
     width: 100%;
    }
 `
 const LandingRight = styled.div`
-  width: 40%;
+  width: 50%;
 
   @media screen and (max-width: 900px) {
     width: 100%;
@@ -213,8 +214,8 @@ const LandingRight = styled.div`
 
   & img {
     width: 100%;
-    height: 60vh;
-    object-fit: contain;
+    height: 65vh;
+    object-fit: cover;
     margin-top: 20px;
     backdrop-filter: blur(2px);
 
@@ -292,6 +293,10 @@ const HomepageSecondaryWrapper = styled.div`
   width: 100%;
   height: 65vh;
   background-color: #f5f1ed87;
+  background-image: url(${homepageABstract});
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -349,6 +354,10 @@ const ProductCategorySection = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url(${productCategoryBg});
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
 
   @media screen and (max-width: 767px) {
         height: auto;
@@ -381,7 +390,7 @@ const ProductCategorySecLeft = styled.div`
   }
 `
 const ProductCategoryList = styled.div`
-  width: 70%;
+  width: 100%;
   margin: 0px auto;
   height: auto;
   display: flex;

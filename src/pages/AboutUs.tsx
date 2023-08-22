@@ -42,7 +42,7 @@ const AboutUs = (props: Props) => {
                             </SecHead>
                             <p>
                                 We are based in Dubai, United Arab Emirates, and actively involved in the business of supplying Laboratory, Medical and Surgical equipment, Pharmaceutical products and Disposables. <b>JNM MEDICAL SURGICAL EQUIPMENT TRADING LLC</b> has a strong client base both in the Government and Private Health Care sector.
-                                <br /> <br />
+                                <br />  <br />
                                 Over the years we have progressively gained the attention and confidence of the main suppliers that senously take great care in the sales and services. Our goal is to expand <b>JNM MEDICAL SURGICAL EQUIPMENT TRADING LLC</b> to strategic and effective distributors to work with highly innovative products that meet the highest standards of quality which we were successful in the past. Thereby become the medical equipment provider of all of the Middle East.                        </p>
                             <EdwoBtn>Browse Catalog</EdwoBtn>
                         </AboutLandingRight>
@@ -152,7 +152,6 @@ const AboutLandingWrapper = styled.div`
         background: rgb(224,236,255);
         background: linear-gradient(41deg, #9fc7ff 0%, rgba(102,168,201,1) 48%, rgba(50,133,153,1) 100%); 
         padding-top: 13rem;
-        padding-bottom: 2rem;
         margin: auto;
 
         @media screen and (max-width: 999px) {
@@ -184,6 +183,7 @@ const AboutLandingWrapper = styled.div`
 const AboutLandingLeft = styled.div`
     width: 48%;
 
+
     @media screen and (max-width: 767px) {
         width: 100%;
         display: flex;
@@ -193,19 +193,20 @@ const AboutLandingLeft = styled.div`
 const AboutLandingRight = styled.div`
     width: 50%;
     margin-left: 2rem;
+    padding-bottom: 1rem;
 
     @media screen and (max-width: 767px) {
         width: 80%;
     }
 
     & p {
-       font-size: 17px;
+       font-size: 14px;
        text-align: left;
        font-weight: 400;
-       line-height: 30px !important;
+       line-height: 23px !important;
+       text-align: justify;
        color: #ffffff;
        margin: 25px 0px 30px 0px;
-       line-height: 24px;
     }
 `
 const AboutSecWrapper = styled.div`

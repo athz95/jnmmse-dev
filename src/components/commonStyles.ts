@@ -51,7 +51,7 @@ export const DescText = styled.div`
 export const SecHead = styled.div`
 
 & h2 {
-    font-size: 45px !important;
+    font-size: 30px !important;
     color: #ffffff;
     font-weight: 700;
     margin-bottom: 10px;

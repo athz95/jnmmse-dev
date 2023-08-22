@@ -26,17 +26,17 @@ const ContactUs = (props: Props) => {
                 <AboutLandingWrapper>
 
                     <AboutLandingRight>
-                        <SecHead>
+                        {/* <SecHead>
                             <h4>Contact <span>US</span></h4>
                             <h6>Wanna Know more details ?</h6>
-                        </SecHead>
-                        <p>
-                            Are you ready to elevate your healthcare facility's capabilities? Reach out to us today to discuss your medical equipment needs. Join us on our journey to redefine medical equipment standards in the Middle East. Experience the reliability, quality, and innovation that define JNM Medical Surgical Equipment Trading LLC.
-                        </p>
+                        </SecHead> */}
+                       
                         <img src={contactUsDoc} alt="contact" />
                     </AboutLandingRight>
                     <AboutLandingLeft>
-
+                        <p>
+                            Are you ready to elevate your healthcare facility's capabilities? Reach out to us today to discuss your medical equipment needs. Join us on our journey to redefine medical equipment standards in the Middle East. Experience the reliability, quality, and innovation that define JNM Medical Surgical Equipment Trading LLC.
+                        </p>
                         <ContactUsForm>
                             <ContactUsFormSec>
                                 <input type="text" placeholder='Full Name *' />
@@ -90,19 +90,23 @@ const AboutLandingWrapper = styled.div`
         }
       
         & p {
-            font-size: 15px;
+            font-size: 14px;
             text-align: left;
             text-transform: capitalize;
             font-weight: 400;
-            line-height: 20px;
-            width: 60%;
+            line-height: 23px;
+            width: 100%;
             color: #ffffff;
-            margin: 10px 0px 30px 0px;
+            margin: 10px 0px 15px 0px;
+            text-align: justify;
             }
 `
 const AboutLandingLeft = styled.div`
     width: 40%;
     padding: 0rem 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 
     @media screen and (max-width: 767px) {
         width: 80%;
@@ -113,9 +117,10 @@ const AboutLandingRight = styled.div`
     width: 40%;
     padding: 0rem 0rem;
 
+
     & img {
             width: 100%;
-            height: auto;
+            height: 85vh;
             object-fit: contain;
 
             @media screen and (max-width: 767px) {
@@ -129,19 +134,19 @@ const AboutLandingRight = styled.div`
     }
 `
 const ContactUsForm = styled.div`
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;   
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;    */
     border-radius: 10px;
-    padding: 20px;
+    /* padding: 20px; */
 `
 const ContactUsFormSec = styled.div`
     display: flex;
     justify-content: flex-start;
-    width: 80%;
+    width: 100%;
 
     & input[type=text] {
         border: 4px solid var(--unnamed-color-ffffff);
