@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BodyWrapper, EdwoBtn, MainWrapper, SecHead } from '../components/commonStyles'
+import { BodyWrapper, EdwoBtn, MainWrapper } from '../components/commonStyles'
 import ContactDetails from '../components/ContactDetails'
 // import Footer from "../components/Footer"
 import Header from '../components/Header'
