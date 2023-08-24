@@ -15,7 +15,7 @@ import homepageLandingImg from "../images/homepageLandingImg.png"
 // import Testimonials from '../components/Testimonials';
 import ContactDetails from '../components/ContactDetails';
 // import Footer from '../components/Footer';
-import FooterHeader from '../components/FooterHeader';
+// import FooterHeader from '../components/FooterHeader';
 // import { Link } from 'react-router-dom';
 import ProductEnquiry from '../components/ProductEnquiry';
 import HomepageBox from '../components/HomepageBox';

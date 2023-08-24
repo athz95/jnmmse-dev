@@ -22,7 +22,7 @@ import AboutUs3c from "../images/about-us3c.png"
 // import SylabusImg from "../images/sylabus.png"
 // import Timing from "../images/timings.png"
 // import AboutUsThirdRightImg from "../images/about-us-why-should.png"
-import FooterHeader from '../components/FooterHeader'
+// import FooterHeader from '../components/FooterHeader'
 
 type Props = {}
 

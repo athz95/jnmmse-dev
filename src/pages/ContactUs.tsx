@@ -11,7 +11,7 @@ import { ContactDetailsWrapper } from './Homepage'
 // import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import contactUsDoc from "../images/contactUsDoc.png"
 // import ContactUuRightBg from "../images/contact-us-right-bg2.png"
-import FooterHeader from "../components/FooterHeader"
+// import FooterHeader from "../components/FooterHeader"
 
 
 type Props = {}
