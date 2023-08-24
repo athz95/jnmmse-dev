@@ -162,7 +162,7 @@ const Homepage = () => {
           <ContactDetails />
         </ContactDetailsWrapper>
 
-        <FooterHeader />
+        {/* <FooterHeader /> */}
 
       </BodyWrapper>
     </MainWrapper>
@@ -355,8 +355,8 @@ const ProductCategorySection = styled.div`
   justify-content: center;
   align-items: center;
   background-image: url(${productCategoryBg});
-  background-size: cover;
-  background-position: left;
+  background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
 
   @media screen and (max-width: 767px) {

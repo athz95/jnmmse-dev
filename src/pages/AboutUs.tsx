@@ -136,7 +136,7 @@ const AboutUs = (props: Props) => {
                 <ContactDetailsWrapper>
                     <ContactDetails />
                 </ContactDetailsWrapper>
-                <FooterHeader />
+                {/* <FooterHeader /> */}
             </BodyWrapper>
         </MainWrapper>
     )

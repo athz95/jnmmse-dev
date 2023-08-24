@@ -60,7 +60,7 @@ const ContactUs = (props: Props) => {
                 <ContactDetailsWrapper>
                     <ContactDetails />
                 </ContactDetailsWrapper>
-                <FooterHeader />
+                {/* <FooterHeader /> */}
             </BodyWrapper>
         </MainWrapper>
     )

@@ -3,7 +3,7 @@ import { BodyWrapper, MainWrapper } from '../components/commonStyles'
 import Header from '../components/Header'
 import { ContactDetailsWrapper, ProductsRow } from './Homepage'
 import ContactDetails from '../components/ContactDetails'
-import FooterHeader from '../components/FooterHeader'
+// import FooterHeader from '../components/FooterHeader'
 import styled from 'styled-components'
 import Product from '../components/Product'
 import ProductSidebar from '../components/ProductSidebar'
@@ -95,7 +95,7 @@ const Products = () => {
                     <ContactDetails />
                 </ContactDetailsWrapper>
 
-                <FooterHeader />
+                {/* <FooterHeader /> */}
 
             </BodyWrapper>
         </MainWrapper>
@@ -107,10 +107,12 @@ export default Products
 const ProductsTopSectionWrap = styled.div`
     width: 100%;
     height: 50vh;
-    background-image: url("https://poonawallafincorp.com/pfca/assets/blog_banner/blog_banner-medical-euqipment3.png");
+    /* background-image: url("https://poonawallafincorp.com/pfca/assets/blog_banner/blog_banner-medical-euqipment3.png");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+    background: rgb(224,236,255);
+    background: linear-gradient(41deg, rgba(224,236,255,1) 0%, rgba(102,168,201,1) 48%, rgba(50,133,153,1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,18 +121,21 @@ const ProductsTopSectionWrap = styled.div`
         font-size: 50px;
         color: #ffffff;
         font-weight: 600;
+        margin: 80px 0px 0px;
     }
 `
 
 const ProductsBodySection = styled.div`
-    width: 100%;
+    width: 80%;
     height: auto;
     display: flex;
-    background-color: rgb(249 250 251);
+    /* background-color: rgb(249 250 251); */
+    margin: auto;
+    gap: 3%;
 `
 
 const ProductsListingSection = styled.div`
-   width: 85%;
+   width: 75%;
    height: auto;
    background-color: ffffff;
     display: flex;
@@ -138,12 +143,15 @@ const ProductsListingSection = styled.div`
     align-items: center;
     padding: 20px 0px;
     gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 25px 0px;
 
 `
 const ProductsSidebarSection = styled.div`
-   width: 15%;
+   width: 20%;
    height: 98vh;
    background-color:#ffffff;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
    overflow-y: auto;
+   margin: 25px 0px;
 `

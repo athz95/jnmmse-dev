@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { NavLink } from "react-router-dom";
 import { productCategoryQuery } from '../utils/categoryData';
 import { client } from '../client';
+import cat1 from "../images/ecg-cat.png";
+
 
 type Props = {}
 
@@ -18,15 +20,17 @@ const ProductSidebar = (props: Props) => {
 
   return (
     <ProductSidebarWrap>
-        <ProductSidebarHead>Discover Categories</ProductSidebarHead>
+        {/* <ProductSidebarHead>Discover Categories</ProductSidebarHead> */}
         <ProductCategories>
-         <NavLink to={'/products'}  className={({ isActive }) => isActive ? "isActiveStyleHead" : "isNotActiveStyleHead"}>All Products</NavLink>
+         {/* <NavLink to={'/products'}  className={({ isActive }) => isActive ? "isActiveStyleHead" : "isNotActiveStyleHead"}>All Products</NavLink> */}
         {categoriesData.map((category:any) => (
-            <NavLink 
-                to={`/products/${category.title}`}   
-                className={({ isActive }) => isActive ? "isActiveStyle" : "isNotActiveStyle"}
-                key={category.title}
-            >{category.title}</NavLink>
+            <>
+                <NavLink 
+                    to={`/products/${category.title}`}   
+                    className={({ isActive }) => isActive ? "isActiveStyle" : "isNotActiveStyle"}
+                    key={category.title}
+                >   <img src={cat1} alt="" /> {category.title}</NavLink>
+            </>
         ))}
         </ProductCategories>
     
@@ -48,19 +52,19 @@ const ProductSidebarWrap = styled.div`
      min-width: 210px;
 `
 
-const ProductSidebarHead = styled.h4`
-    font-size: 1.3rem;
-    text-align: center;
-    color: #000000;
-    font-weight: 600;
-    padding: 10px 0px;
-`
+// const ProductSidebarHead = styled.h4`
+//     font-size: 1.3rem;
+//     text-align: center;
+//     color: #000000;
+//     font-weight: 600;
+//     padding: 10px 0px;
+// `
 const ProductCategories = styled.div`
      display: flex;
      flex-direction: column;
-     align-items: flex-start;
+     align-items: center;
      justify-content: flex-start;
-     padding: 10px 15px;
+     padding: 30px 7px 10px 7px;
      gap: 10px;
      /* border: 1px solid #000000; */
 
@@ -73,17 +77,30 @@ const ProductCategories = styled.div`
             font-size: 18px;
             color: #000000;
             font-weight: bolder;
-            border-right: 2px solid black;
+            border-right: 5px solid rgba(102,168,201,1);
             transition: all ease-in-out;
             transition-duration: 200ms;
             text-transform: capitalize;
             text-decoration: none;
             width: 100%;
-            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;     }
+            justify-content: center;
+ 
+
+            & img {
+               width: 35px;
+               height: 35px;
+               object-fit: contain;
+               background-color: #ffffff;
+               border-radius: 50px;
+               padding: 5px;
+            }
+        
+        }
 
      & .isActiveStyleHead {
             display: flex;
             align-items: center;
+            justify-content: center;
             padding: 0 5px;
             gap: 3px;
             font-size: 18px;
@@ -102,6 +119,7 @@ const ProductCategories = styled.div`
      & .isNotActiveStyle {
             display: flex;
             align-items: center;
+            justify-content: center;
             padding: 0 5px;
             gap: 3px;
             font-size: 18px;
@@ -110,10 +128,13 @@ const ProductCategories = styled.div`
             text-transform: capitalize;
             width: 98%;
             
-            &:hover{
-                color: #000000;
-                transition: all ease-in-out;
-                transition-duration: 200ms;
+            & img {
+                width: 35px;
+               height: 35px;
+               object-fit: contain;
+               background-color: #ffffff;
+               border-radius: 50px;
+               padding: 5px;
             }
      }
 
@@ -127,11 +148,5 @@ const ProductCategories = styled.div`
             text-decoration: none;
             text-transform: capitalize;
             width: 98%;
-            
-            &:hover{
-                color: #000000;
-                transition: all ease-in-out;
-                transition-duration: 200ms;
-            }
      }
 `

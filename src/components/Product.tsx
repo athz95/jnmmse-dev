@@ -22,7 +22,7 @@ const Product = (props: Props) => {
 export default Product
 
 const ProductWrap = styled.div`
-    width: 20%;
+    width: 24%;
     max-width: 250px;
     height: 250px;
     padding: 10px;
