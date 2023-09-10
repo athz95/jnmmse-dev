@@ -50,6 +50,24 @@ const ProductSidebarWrap = styled.div`
      justify-content: flex-start;
      padding: 0px 0px 10px 0px;
      overflow-x: auto;
+
+     &::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar
+    {
+        width: 5px;
+        background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+	    border-radius: 10px;
+        background-color: rgba(102,168,201,1)
+    }
 `
 
 const ProductCategories = styled.div`
