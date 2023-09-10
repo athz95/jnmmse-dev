@@ -3,9 +3,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
 //image imports
-import LogoImage from "../images/main-logo.png"
+import LogoImage from "../images/jnmNewLogo.png"
 // import LandingBg from "../images/homepage-bg.png"
-import { EdwoBtn } from './commonStyles';
+import { EdwoBtn } from '../commonStyles';
 
 type Props = {}
 

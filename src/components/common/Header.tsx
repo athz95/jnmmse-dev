@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from "styled-components";
 //image imports
-import LogoImage from "../images/main-logo.png"
-import { EdwoBtn } from './commonStyles';
+import LogoImage from "../../images/jnmNewLogo.png"
+import { EdwoBtn } from '../commonStyles';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -41,9 +41,9 @@ const Menu = () => {
                   )}
               </Link>
           ))}
-          <Link to="/contact-us">
+          <a href="https://drive.google.com/drive/folders/1UhIVZFUA3LfYnLd0zH-EpylqefA6ju73" target="_blank">
               <EdwoBtn size="md">Explore Catalog</EdwoBtn>
-          </Link>
+          </a>
       </>
   );
 };
@@ -114,12 +114,11 @@ export default Header
 
 const HeaderWrapper = styled.div`
     width: 100%;
-    max-width: 1920px;
+    max-width: 100%;
     position: fixed;
     top: 0px;
     z-index: 9999;
-    /* background-color: #00000088; */
-    padding: 20px;
+    padding: 20px 0px;
 `
 const HeaderSubLeft = styled.div`
     width: 20%;

@@ -37,9 +37,24 @@ export const BodyWrapper = styled.div`
   width: 100%;
   margin: auto;
   position: relative;
-  max-width: 1920px;
-  /* background: rgb(224,236,255);
-  background: linear-gradient(41deg, rgba(224,236,255,1) 0%, rgba(102,168,201,1) 48%, rgba(50,133,153,1) 100%); */
+  max-width: 100%;
+
+  .mobileSidebar {
+    display: none;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .mobileSidebar{
+      display: block;
+    }
+
+    .desktopSidebar{
+       display: none;
+     }
+  }
+
+
+
 `
 export const DescText = styled.div`
    font-size: 15px;

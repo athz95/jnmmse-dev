@@ -1,16 +1,32 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import styled  from 'styled-components';
-import { SecHead } from './commonStyles';
-import contactMobile from "../images/phone-footer.png"
-import contactFacebook from "../images/footer-facebook.png"
-import contactInstagram from "../images/footer-instagram.png"
-import contactMessage from "../images/footer-message.png"
-import contactTwitter from "../images/footer-twitter.png"
-import contactWhatsapp from "../images/footer-whatsapp.png"
+import { SecHead } from '../commonStyles';
+import contactMobile from "../../images/phone-footer.png"
+import contactFacebook from "../../images/footer-facebook.png"
+import contactInstagram from "../../images/footer-instagram.png"
+import contactMessage from "../../images/footer-message.png"
+import contactWhatsapp from "../../images/footer-whatsapp.png"
+import contactLinkedin from "../../images/linkedinIcon.png"
+import { client } from '../../client';
+import { companyInfoQuery } from '../../utils/data';
 
-type Props = {}
+interface companyDetails {
+   address?: any;
+   email?: any;
+   mobile?: any;
+   whatsappNumber: any;
+}
 
-const ContactDetails = (props: Props) => {
+const ContactDetails = () => {
+   const [companyInfo, setCompanyInfo] = useState({} as companyDetails)
+
+
+   useEffect(() => {
+    client.fetch(companyInfoQuery).then((data) => {
+      setCompanyInfo(data[0]);
+    }).catch((err) => console.error(err));
+  },[])
+
   return (
     <ContactDetailsWrapper>
         <ContactDetailsLeft>
@@ -21,30 +37,30 @@ const ContactDetails = (props: Props) => {
             <ContactDetailsSecs>
                 <ContactDetailsSec>
                       <h6>Address</h6>
-                      <p>JNM Medical Surgical Equipment Trading LLC <br/> Flat 204, Ruqaya Saeed, <br /> Hor Al Anz- Dubai</p>
+                      <p>{companyInfo?.address}</p>
                       
                 </ContactDetailsSec>
                 <ContactDetailsSec>
                   <h6>Mobile</h6>
                   <ContactDetailsSubs>
                       <img src={contactMobile} alt="mobile" />
-                      <p>+971 547720629</p>
+                      <p>{companyInfo?.mobile}</p>
                   </ContactDetailsSubs>
                 </ContactDetailsSec>
                 <ContactDetailsSec>
                   <h6>Email</h6>
                   <ContactDetailsSubs>
                       <img src={contactMessage} alt="mail" />
-                      <p>info@jnmmse.com</p>
+                      <p>{companyInfo?.email}</p>
                   </ContactDetailsSubs>
                 </ContactDetailsSec>
                 <ContactDetailsSec>
                   <h6>Follow Us On</h6>
                   <ContactDetailsSubs>
-                      <img src={contactFacebook} alt="facebook" />
-                      <img src={contactWhatsapp} alt="whatsapp" />
+                      <a href="https://www.facebook.com/profile.php?id=61550564621013"><img src={contactFacebook} alt="facebook" /></a>
+                      <a href={`https://wa.me/${companyInfo?.whatsappNumber}?text=Hello`}><img src={contactWhatsapp} alt="whatsapp" /></a>
                       <img src={contactInstagram} alt="instagram" />
-                      <img src={contactTwitter} alt="twitter" />
+                      <a href="https://www.linkedin.com/in/jnm-mse-784618289?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BUnayTuDdSzWTxYZDBe9hjg%3D%3D"><img src={contactLinkedin} alt="linkedin" /></a>
                   </ContactDetailsSubs>
                 </ContactDetailsSec>
             </ContactDetailsSecs>

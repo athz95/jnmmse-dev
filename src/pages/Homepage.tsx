@@ -2,59 +2,133 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { BodyWrapper, EdwoBtn, MainWrapper } from '../components/commonStyles'
-import Header from '../components/Header'
-
-
+import Header from '../components/common/Header'
 
 //image imports
-// import LandingBanner from "../images/homepage-landing-doc.png";
 import productCategoryBg from "../images/productCategoryBg.png"
 import homepageABstract from "../images/homepageABstract.jpg"
 import homepageLandingImg from "../images/homepageLandingImg.png"
-// import ProductCategoryDOc from "../images/ProductCategoryDOc.jpg"
-// import Testimonials from '../components/Testimonials';
-import ContactDetails from '../components/ContactDetails';
-// import Footer from '../components/Footer';
-// import FooterHeader from '../components/FooterHeader';
-// import { Link } from 'react-router-dom';
+
+import ContactDetails from '../components/common/ContactDetails';
 import ProductEnquiry from '../components/ProductEnquiry';
 import HomepageBox from '../components/HomepageBox';
-import Product from '../components/Product';
-import Spinner from '../components/Spinner';
-import { client } from '../client';
-import { feedQuery } from '../utils/categoryData';
+import Spinner from '../components/common/Spinner';
+import { client, urlFor } from '../client';
+import { productCategoryQuery } from '../utils/data';
 import GeneralMedicineIcon from '../components/icons/GeneralMedicineIcon';
 import DentalProducts from '../components/icons/DentalProducts';
 import InstrumentsIcon from '../components/icons/InstrumentsIcon';
 import LabProducts from '../components/icons/LabProducts';
 import HospitalFurniture from '../components/icons/HospitalFurniture';
 import OtherProducts from '../components/icons/OtherProducts';
+import WhatsappIco from '../components/WhatsAppIco'
+import { NavLink } from 'react-router-dom'
+import Helmet from 'react-helmet'
+
+import Slider from "react-slick";
+// Import css files
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import CompanySchema from '../components/common/CompanySchema'
 
 
-type productTypes = {
-  _id?: string;
-  destination?: string;
-  image: any;
-  title?: string;
+const structuredData = () => {
+  const data = {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "JNM Medical Surgical Equipment Trading LLC",
+      "description": "Supplier of laboratory, medical, and surgical equipment, pharmaceutical products, and disposables in Dubai, UAE. Serving Government and Private Healthcare sectors.",
+      "url": "https://www.jnmmse.com",
+      "telephone": "+971 547720629",
+      "email": "info@jnmmse.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Flat 204, Ruqaya Saeed",
+        "addressLocality": "Hor Al Anz",
+        "addressRegion": "Dubai",
+        "postalCode": "125212",
+        "addressCountry": "United Arab Emirates",
+        "openingHours": "Mo-Fr 08:00-17:00",
+      },
+      "itemListElement":
+          [
+              {
+                  "@type": "ListItem",
+                  "item": "https://www.jnmmse.com",
+                  "name": "Homepage",
+                  "position": 1
+              },
+            ]
+  }
+
+  return JSON.stringify(data)
 }
 
 
 const Homepage = () => {
   const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState([]);
-
+  const [categoriesData, setCategoriesData] = useState([])
 
   useEffect(() => {
-    setLoading(true);
-    client.fetch(feedQuery).then((data) => {
-        setProducts(data);
-        setLoading(false);
+    window.scrollTo(0, 0);
+    setLoading(true)
+    client.fetch(productCategoryQuery).then((data) => {
+        // Reverse the order of the data array
+        const reversedData = data.slice().reverse();
+        setCategoriesData(reversedData);
+        setLoading(false)
     }).catch((err) => console.error(err));
-}, []);
+  },[])
 
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 5,
+      slidesToScroll: 2,
+      autoplay: true,
+      responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 800,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        
+        ]
+    };
 
 
   return (
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Leading Medical Equipment Supplier in Dubai, UAE | JNM Medical Trading LLC</title>
+        <meta name="description" content="JNM Medical Trading LLC is your trusted source for laboratory, medical, surgical equipment, pharmaceuticals, and disposables in Dubai, UAE. Serving both Government and Private Healthcare sectors" />
+        <meta name="keywords" content="Medical equipment supplier Dubai, Surgical equipment supplier UAE, Pharmaceutical products Dubai, Laboratory equipment distributor UAE"></meta>
+     </Helmet>
+     <CompanySchema />
+
+    
+
     <MainWrapper>
       <Header />
       <BodyWrapper>
@@ -66,7 +140,7 @@ const Homepage = () => {
                        Your Trusted Medical Equipment Supplier
                 </h6>
             
-                <EdwoBtn>Browse Catalog</EdwoBtn>
+                <a href="https://drive.google.com/drive/folders/1UhIVZFUA3LfYnLd0zH-EpylqefA6ju73"><EdwoBtn>Browse Catalog</EdwoBtn></a>
               </LandingTextWrap>
             </LeftImageText>
             <ProductEnquiryWrapper>
@@ -84,12 +158,36 @@ const Homepage = () => {
              </HomepageBoxRight>
         </HomepageSecondaryWrapper>
 
+        <ProductSectionWrapper>
+          <ProductCategoriesHead>
+             <h3>Product Categories</h3>
+             <h6><NavLink to={"/products"}> See All</NavLink></h6>
+          </ProductCategoriesHead>
+       
+            <ProductsRow>
+            {loading ? <Spinner /> :
+            <>
+                <Slider {...settings}>
+                  {categoriesData.map((category:any, index) => 
+                        <ProductCategoryRound key={index}>
+                          <NavLink to={`/products/${category.title}`}>
+                            <div className='imgWrap'>
+                                <img src={category.image ? urlFor(category.image)?.width(250)?.url() : ""} alt="" /> 
+                            </div>
+                          </NavLink>
+                            
+                            <NavLink to={`/products/${category.title}`} key={category.title}>{category.title.replace(/-/g, ' ')}</NavLink>
+                        </ProductCategoryRound>
+                 )}
+                </Slider>
+            </>}
+            </ProductsRow>
+        </ProductSectionWrapper>
 
         <ProductCategorySection>
             <h3>Product Range</h3>
             <div className='product-range-wrap'>
               <ProductCategorySecLeft>
-                {/* <img src={ProductCategoryDOc} alt="" /> */}
                 <ProductCategoryList>
                 <ProductCategoryBox>
                   <GeneralMedicineIcon />
@@ -128,44 +226,15 @@ const Homepage = () => {
             </div>
         </ProductCategorySection>
 
-
-        <ProductSectionWrapper>
-            <h3>Supply Catalog</h3>
-            <p>Request a free sample from us today !</p>
-            <ProductsRow>
-            {loading ? <Spinner /> :
-                        <>
-                            {products.slice(0, 10).map((product: productTypes) => (
-                                <Product
-                                    key={product._id}
-                                    productImage={product?.image?.asset?.url}
-                                    productName={product.title}
-                                    productUrl={product.destination}
-                                />
-                            ))
-                            }
-                        </>
-              }
-            </ProductsRow>
-        </ProductSectionWrapper>
-
-
-        
-       
-
-        {/* <TestimonialWrapper>
-          <Testimonials />
-        </TestimonialWrapper> */}
-
-
         <ContactDetailsWrapper>
           <ContactDetails />
         </ContactDetailsWrapper>
 
-        {/* <FooterHeader /> */}
-
+          <WhatsappIco />
       </BodyWrapper>
     </MainWrapper>
+
+    </>
   )
 }
 
@@ -177,7 +246,7 @@ const HomepageLandingWrapper = styled.div`
   width: 100%;
   height: auto;
   min-height: 60vh;
-  max-height: 73vh;
+  max-height: 84vh;
   background: rgb(224,236,255);
   background: linear-gradient(41deg, rgba(224,236,255,1) 0%, rgba(102,168,201,1) 48%, rgba(50,133,153,1) 100%);
   padding-top: 13rem;
@@ -188,7 +257,7 @@ const HomepageLandingWrapper = styled.div`
       padding-top: 9rem;
       flex-direction: column;
       min-height: 100%;
-      max-height: auto;
+      max-height: 100%;
       height: auto;
   }
 
@@ -214,14 +283,19 @@ const LandingRight = styled.div`
 
   & img {
     width: 100%;
-    height: 65vh;
+    height: 75vh;
     object-fit: cover;
     margin-top: 20px;
     backdrop-filter: blur(2px);
 
     @media screen and (max-width: 900px) {
-      width: 100%;
-      height: 60vh;
+      width: 65%;
+      height: 40vh;
+    }
+
+    @media screen and (max-width: 576px) {
+      width: 90%;
+      height: auto;
     }
   }
 `
@@ -287,11 +361,18 @@ const ProductEnquiryWrapper = styled.div`
      position: absolute;
      left: 10%;
      top: 75%;
+
+     @media screen and (max-width: 900px) {
+       position: static;
+       margin: 20px 0px;
+    }
 `
 
 const HomepageSecondaryWrapper = styled.div`
   width: 100%;
-  height: 65vh;
+  height: auto;
+  max-height: 65vh;
+  min-height: 50vh;
   background-color: #f5f1ed87;
   background-image: url(${homepageABstract});
   background-size: cover;
@@ -300,6 +381,10 @@ const HomepageSecondaryWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+      padding: 40px 0px;
+    }
 `
 
 const HomepageBoxRight = styled.div`
@@ -308,6 +393,21 @@ const HomepageBoxRight = styled.div`
     gap: 30px;
     align-items: center;
     width: 70%;
+
+    @media screen and (max-width: 1100px) {
+      justify-content: flex-end;
+      margin-right: 20px;
+    }
+
+    @media screen and (max-width: 900px) {
+      justify-content: center;
+      width: 100%;
+      margin: 0px 20px;
+    }
+
+    @media screen and (max-width: 576px) {
+      flex-direction: column;
+    }
 `
 
 export const ProductSectionWrapper = styled.div`
@@ -329,22 +429,23 @@ export const ProductSectionWrapper = styled.div`
      letter-spacing: 0.5px;
   }
 
-  & p {
+  /* & p {
      font-size: 13px;
      color: #444242;
      font-weight: 500;
      text-align: center;
      margin-bottom: 10px;
-  }
+  } */
 `
 
 export const ProductsRow = styled.div`
-  width: 85%;
+  width: 85% !important;
   height: auto;
-  display: flex; 
+  margin: 20px 0px;
+  /* display: flex; 
   justify-content: space-evenly;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 15px; */
 `
 
 const ProductCategorySection = styled.div`
@@ -361,6 +462,7 @@ const ProductCategorySection = styled.div`
 
   @media screen and (max-width: 767px) {
         height: auto;
+        background-image: none;
     }
 
 
@@ -382,6 +484,12 @@ const ProductCategorySection = styled.div`
 
 const ProductCategorySecLeft = styled.div`
   width: 50%;
+
+  @media screen and (max-width: 767px) {
+        width: 100%;
+    }
+
+  
 
   & img {
     width: 100%;
@@ -407,9 +515,12 @@ const ProductCategoryBox = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* flex-direction: column; */
   gap: 10px;
-  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;   */
+
+  @media screen and (max-width: 900px) {
+    width: 90%;
+  }
+
   & svg {
     width: 50px;
     height: 50px;
@@ -422,10 +533,89 @@ const ProductCategoryBox = styled.div`
   & h5 {
     font-size: 20px;
     color: #000000;
-    text-align: center;
+    text-align: left;
   }
 
   @media screen and (max-width: 767px) {
         width: 100%;
+        padding: 0px;
+        justify-content: center;
     }
+`
+
+const ProductCategoriesHead = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  align-items: center;
+
+  & h6 {
+     & a {
+        text-decoration: none;
+        font-size: 15px;
+        color: #000000;
+        font-weight: 600;
+        text-align: center;
+        text-transform: capitalize;
+        letter-spacing: 0.5px;
+        margin: 1rem 0;
+        cursor: pointer;
+     }
+     & :hover{
+          color: #323030;
+          text-decoration: underline;
+        }
+  }
+
+  & h3 {
+    font-size: 30px;
+     color: #0097df;
+     font-weight: 600;
+     text-align: center;
+     text-transform: capitalize;
+     letter-spacing: 0.5px;
+     margin: 1rem 0;
+
+     @media screen and (max-width: 767px) {
+        font-size: 23px;
+    }
+  }
+`
+
+const ProductCategoryRound = styled.div`
+  /* width: 20% !important; */
+  height: auto;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+
+
+  & img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+  }
+
+  & .imgWrap{
+      width: 100px;
+      height: 100px;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100px;
+      border: 1px solid darkgray;
+  }
+
+  & a {
+    text-decoration: none;
+    color: #323030;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
 `

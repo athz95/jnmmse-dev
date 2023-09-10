@@ -6,9 +6,7 @@ import { client } from '../client';
 import { urlFor } from "../client";
 
 
-type Props = {}
-
-const ProductSidebar = (props: Props) => {
+const ProductSidebarMobile = () => {
 
     const [categoriesData, setCategoriesData] = useState([])
 
@@ -42,23 +40,20 @@ const ProductSidebar = (props: Props) => {
   )
 }
 
-export default ProductSidebar
+export default ProductSidebarMobile;
 
 
 const ProductSidebarWrap = styled.div`
      width: 100%;
      height: auto;
      display: flex;
-     flex-direction: column;
-     justify-content: space-between;
+     justify-content: flex-start;
      padding: 0px 0px 10px 0px;
-     overflow-y: auto;
-     min-width: 210px;
+     overflow-x: auto;
 `
 
 const ProductCategories = styled.div`
      display: flex;
-     flex-direction: column;
      align-items: center;
      justify-content: flex-start;
      padding: 30px 7px 10px 7px;
@@ -73,13 +68,14 @@ const ProductCategories = styled.div`
             font-size: 16px;
             color: #000000;
             font-weight: bolder;
-            border-right: 5px solid rgba(102,168,201,1);
+            border-bottom: 5px solid rgba(102,168,201,1);
             transition: all ease-in-out;
             transition-duration: 200ms;
             text-transform: capitalize;
             text-decoration: none;
-            width: 99%;
-            justify-content: flex-start;
+            width: auto;
+            min-width: 23%;
+            justify-content: center;
  
 
             & img {
@@ -107,20 +103,22 @@ const ProductCategories = styled.div`
             transition-duration: 200ms;
             text-transform: capitalize;
             text-decoration: none;
-            width: 99%;
+            width: auto;
+            min-width: 11%;
      }
      
      & .isNotActiveStyle {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             padding: 0 5px;
             gap: 3px;
             font-size: 16px;
             color: gray;
             text-decoration: none;
             text-transform: capitalize;
-            width: 98%;
+            width: auto;
+            min-width: 22%;
             
             & img {
                 width: 35px;
@@ -141,6 +139,7 @@ const ProductCategories = styled.div`
             color: gray;
             text-decoration: none;
             text-transform: capitalize;
-            width: 98%;
+            width: auto;
+            min-width: 11%;
      }
 `

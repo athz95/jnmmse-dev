@@ -14,7 +14,7 @@ const Product = (props: Props) => {
     <ProductWrap>
         <img src={props.productImage} alt="" />
         <h4>{props.productName}</h4>
-        <button><a href={props.productUrl}>View</a></button>
+        <button><a href={props.productUrl}>Buy Now</a></button>
     </ProductWrap>
   )
 }
@@ -22,7 +22,7 @@ const Product = (props: Props) => {
 export default Product
 
 const ProductWrap = styled.div`
-    width: 24%;
+    width: 26%;
     max-width: 250px;
     height: 250px;
     padding: 10px;

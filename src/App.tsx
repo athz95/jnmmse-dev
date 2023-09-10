@@ -3,10 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import './App.css';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
-// import Courses from './pages/Courses';
 import Homepage from './pages/Homepage';
 import PageNotFound from './pages/PageNotFound';
-import TermsAndPrivacy from './pages/TermsAndPrivacy';
 import Products from './pages/Products';
 
 function App() {
@@ -18,7 +16,6 @@ function App() {
             <Route path="/products/:id" element={<Products />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact-us" element={<ContactUs />} />
-            <Route path="/terms-and-privacy" element={<TermsAndPrivacy />} />
             <Route path="*" element={<PageNotFound />} /> 
        </Routes>
     </div>

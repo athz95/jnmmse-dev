@@ -1,36 +1,39 @@
 import styled from 'styled-components'
 import { BodyWrapper, EdwoBtn, MainWrapper, SecHead } from '../components/commonStyles'
-import ContactDetails from '../components/ContactDetails'
-// import Footer from '../components/Footer'
-import Header from '../components/Header'
-// import Testimonials from '../components/Testimonials'
-// import { useNavigate } from 'react-router-dom'
+import ContactDetails from '../components/common/ContactDetails'
+import Header from '../components/common/Header'
 import { ContactDetailsWrapper} from './Homepage'
-
-//image imports
-// import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-// import AboutColorBg from "../images/about-us-colors-bg.png" 
 import AboutLeftBg from "../images/AboutUsLanding.png"
 import AboutUs1c from "../images/about-us1c.png"
 import AboutUs2c from "../images/about-us2c.png"
 import AboutUs3c from "../images/about-us3c.png"
-// import AboutUsBg1 from "../images/homepage-bg-color-2.png"
-// import AboutUsBg2 from "../images/homepage-bg-color.png"
-// import AboutUsMainBg from "../images/about-us-providing-optium.png"
-// import AboutUsThirdBg from "../images/about-us-third-bg.png"
-// import TrainingImg from "../images/training.png"
-// import SylabusImg from "../images/sylabus.png"
-// import Timing from "../images/timings.png"
-// import AboutUsThirdRightImg from "../images/about-us-why-should.png"
-// import FooterHeader from '../components/FooterHeader'
+import { useEffect } from 'react'
+import WhatsappIco from '../components/WhatsAppIco'
+import { Helmet } from 'react-helmet'
+import CompanySchema from '../components/common/CompanySchema'
 
 type Props = {}
 
 const AboutUs = (props: Props) => {
-    // const navigate = useNavigate();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    },[])
 
 
     return (
+        <>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>About Us | Quality Medical Supplies and Pharmaceuticals | JNM Medical Trading Dubai</title>
+            <meta name="description" content="Explore our wide range of medical supplies, pharmaceutical products, and surgical equipment. JNM Medical Trading LLC, a preferred choice in Dubai's healthcare industry" />
+            <meta name="keywords" content="Private healthcare equipment Dubai, Government healthcare supplies UAE, Trusted medical equipment provider, Dubai healthcare solutions"></meta>
+         </Helmet>
+         <CompanySchema />
+        
+
+
+  
         <MainWrapper>
             <Header />
             <BodyWrapper>
@@ -44,7 +47,7 @@ const AboutUs = (props: Props) => {
                                 We are based in Dubai, United Arab Emirates, and actively involved in the business of supplying Laboratory, Medical and Surgical equipment, Pharmaceutical products and Disposables. <b>JNM MEDICAL SURGICAL EQUIPMENT TRADING LLC</b> has a strong client base both in the Government and Private Health Care sector.
                                 <br />  <br />
                                 Over the years we have progressively gained the attention and confidence of the main suppliers that senously take great care in the sales and services. Our goal is to expand <b>JNM MEDICAL SURGICAL EQUIPMENT TRADING LLC</b> to strategic and effective distributors to work with highly innovative products that meet the highest standards of quality which we were successful in the past. Thereby become the medical equipment provider of all of the Middle East.                        </p>
-                            <EdwoBtn>Browse Catalog</EdwoBtn>
+                                <a href="https://drive.google.com/drive/folders/1UhIVZFUA3LfYnLd0zH-EpylqefA6ju73"><EdwoBtn>Browse Catalog</EdwoBtn></a>
                         </AboutLandingRight>
                         <AboutLandingLeft>
                             <img src={AboutLeftBg} alt="" />
@@ -124,21 +127,14 @@ const AboutUs = (props: Props) => {
 
                 </AboutUsThirdWrapper>
 
-
-
-
-
-                {/* <TestimonialWrapper>
-                    <Testimonials />
-                </TestimonialWrapper> */}
-
-
                 <ContactDetailsWrapper>
                     <ContactDetails />
                 </ContactDetailsWrapper>
                 {/* <FooterHeader /> */}
+                <WhatsappIco />
             </BodyWrapper>
         </MainWrapper>
+        </>
     )
 }
 
@@ -147,20 +143,10 @@ export default AboutUs
 const AboutLandingWrapper = styled.div`
         width: 100%;
         height: auto;
-        /* min-height: 65vh;
-        max-height: 80vh;  */
         background: rgb(224,236,255);
         background: linear-gradient(41deg, #9fc7ff 0%, rgba(102,168,201,1) 48%, rgba(50,133,153,1) 100%); 
-        padding-top: 13rem;
+        padding-top: 10rem;
         margin: auto;
-
-        @media screen and (max-width: 999px) {
-           flex-direction: column;
-           max-height: 100%;
-           min-height: 100%;
-        }
-
-        
 
         & img {
             width: 100%;
@@ -175,9 +161,16 @@ const AboutLandingWrapper = styled.div`
         & .aboutWidth{
             width: 85%;
             display: flex;
-            align-items: flex-start;
+            align-items: flex-end;
             justify-content: center;
             margin: auto;
+
+            @media screen and (max-width: 999px) {
+                flex-direction: column;
+                max-height: 100%;
+                max-width: 100%;
+                align-items: flex-start;
+            }
         }
 `
 const AboutLandingLeft = styled.div`
@@ -194,6 +187,10 @@ const AboutLandingRight = styled.div`
     width: 50%;
     margin-left: 2rem;
     padding-bottom: 1rem;
+
+    @media screen and (max-width: 999px) {
+       width: 75%;
+    }
 
     @media screen and (max-width: 767px) {
         width: 80%;
@@ -271,6 +268,13 @@ const AboutUsThirdWrapper = styled.div`
     background-color: #e4edf6;
     padding: 20px 10px;
 
+    @media screen and (max-width: 767px) {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     & h4 {
         font-size: 35px;
         text-align: center;
@@ -290,8 +294,10 @@ const AboutUsImportance = styled.div`
   background: #ffffff;
 
   @media screen and (max-width: 767px) {
-        width: auto;
-    }
+      width: auto;
+      padding: 20px;
+      height: auto;
+   }
 
   & p {
         font-size: 15px;
@@ -316,4 +322,8 @@ const AboutUsImportanceWrap = styled.div`
     flex-wrap: wrap;
     width: 100%;
     margin-top:1.5rem;
+
+    @media screen and (max-width: 767px) {
+        width: 80%;
+    }
 `

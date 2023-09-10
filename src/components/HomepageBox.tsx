@@ -24,7 +24,7 @@ const HomepageBoxWrap = styled.div`
     width: auto;
     max-width: 20vw;
     height: 200px;
-    max-height: 15vh;
+    max-height: 20vh;
     background-color: #ffffff;
     border-radius: 8px;
     position: relative;
@@ -34,6 +34,17 @@ const HomepageBoxWrap = styled.div`
     align-items: center;
     flex-direction: column;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    @media screen and (max-width: 900px) {
+        max-width: 48%;
+        height: 23vh;
+    }
+
+    @media screen and (max-width: 576px) {
+        width: 90%;
+        height: 25vh;
+        max-width: 100%;
+    }
 
     & h3 {
         font-size: 20px;

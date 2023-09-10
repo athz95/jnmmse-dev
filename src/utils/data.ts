@@ -29,7 +29,19 @@ export const searchQuery = (searchTerm: any) => {
 };
 
   export const productCategoryQuery = `*[_type == "productCategory"] | order(_createdAt desc) {
-    title
+    title,
+    image{
+        asset->{
+            url
+        }
+    },
+  }`;
+
+  export const companyInfoQuery = `*[_type == "companyInfo"] | order(_createdAt desc) {
+    mobile,
+    email,
+    address,
+    whatsappNumber
   }`;
   
   
