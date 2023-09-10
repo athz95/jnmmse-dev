@@ -169,6 +169,7 @@ const AboutLandingLeft = styled.div`
     @media screen and (max-width: 767px) {
         width: 80%;
         padding: 0rem 0rem;
+        margin-bottom: 20px;
     }
 `
 const AboutLandingRight = styled.div`
@@ -183,7 +184,7 @@ const AboutLandingRight = styled.div`
 
             @media screen and (max-width: 767px) {
                 height: auto;
-                padding-top: 2rem;
+                padding-top: 5rem;
             }
         }
     

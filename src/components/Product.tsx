@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-// import AboutUs3c from "../images/about-us3c.png"
 
 
 type Props = {
@@ -14,7 +13,7 @@ const Product = (props: Props) => {
     <ProductWrap>
         <img src={props.productImage} alt="" />
         <h4>{props.productName}</h4>
-        <button><a href={props.productUrl}>Buy Now</a></button>
+        <button><a href={props.productUrl} rel="noreferrer" target="_blank">Buy Now</a></button>
     </ProductWrap>
   )
 }
