@@ -32,39 +32,6 @@ import "slick-carousel/slick/slick-theme.css";
 import CompanySchema from '../components/common/CompanySchema'
 
 
-const structuredData = () => {
-  const data = {
-      "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
-      "name": "JNM Medical Surgical Equipment Trading LLC",
-      "description": "Supplier of laboratory, medical, and surgical equipment, pharmaceutical products, and disposables in Dubai, UAE. Serving Government and Private Healthcare sectors.",
-      "url": "https://www.jnmmse.com",
-      "telephone": "+971 547720629",
-      "email": "info@jnmmse.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Flat 204, Ruqaya Saeed",
-        "addressLocality": "Hor Al Anz",
-        "addressRegion": "Dubai",
-        "postalCode": "125212",
-        "addressCountry": "United Arab Emirates",
-        "openingHours": "Mo-Fr 08:00-17:00",
-      },
-      "itemListElement":
-          [
-              {
-                  "@type": "ListItem",
-                  "item": "https://www.jnmmse.com",
-                  "name": "Homepage",
-                  "position": 1
-              },
-            ]
-  }
-
-  return JSON.stringify(data)
-}
-
-
 const Homepage = () => {
   const [loading, setLoading] = useState(false);
   const [categoriesData, setCategoriesData] = useState([])
@@ -341,14 +308,7 @@ const LandingTextWrap = styled.div`
     }
 `
 
-export const TestimonialWrapper = styled.div`
-      width: 100%;
-      height: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 3rem auto;
-`
+
 export const ContactDetailsWrapper = styled.div`
       width: 100%;
       height: auto;
@@ -429,23 +389,12 @@ export const ProductSectionWrapper = styled.div`
      letter-spacing: 0.5px;
   }
 
-  /* & p {
-     font-size: 13px;
-     color: #444242;
-     font-weight: 500;
-     text-align: center;
-     margin-bottom: 10px;
-  } */
 `
 
 export const ProductsRow = styled.div`
   width: 85% !important;
   height: auto;
   margin: 20px 0px;
-  /* display: flex; 
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  gap: 15px; */
 `
 
 const ProductCategorySection = styled.div`

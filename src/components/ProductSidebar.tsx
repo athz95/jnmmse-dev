@@ -6,9 +6,8 @@ import { client } from '../client';
 import { urlFor } from "../client";
 
 
-type Props = {}
 
-const ProductSidebar = (props: Props) => {
+const ProductSidebar = () => {
 
     const [categoriesData, setCategoriesData] = useState([])
 

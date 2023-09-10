@@ -41,7 +41,7 @@ const Menu = () => {
                   )}
               </Link>
           ))}
-          <a href="https://drive.google.com/drive/folders/1UhIVZFUA3LfYnLd0zH-EpylqefA6ju73" target="_blank">
+          <a href="https://drive.google.com/drive/folders/1UhIVZFUA3LfYnLd0zH-EpylqefA6ju73" target="_blank" rel="noreferrer">
               <EdwoBtn size="md">Explore Catalog</EdwoBtn>
           </a>
       </>
