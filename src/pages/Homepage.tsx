@@ -396,7 +396,11 @@ export const ProductsRow = styled.div`
   height: auto;
   margin: 20px 0px;
 
-  &.slick-prev:before, .slick-next:before{
+  .slick-prev:before {
+    color: #0097df !important;
+  }
+
+  .slick-next:before{
     color: #0097df !important;
   }
 `
