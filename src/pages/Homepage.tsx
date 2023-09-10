@@ -255,6 +255,11 @@ const LandingRight = styled.div`
     margin-top: 20px;
     backdrop-filter: blur(2px);
 
+    @media screen and (max-width: 1250px) {
+      width: 100%;
+      height: 65vh;
+    }
+
     @media screen and (max-width: 900px) {
       width: 65%;
       height: 40vh;
@@ -293,11 +298,15 @@ const LandingTextWrap = styled.div`
        margin-bottom: 10px;
        width: 85%;
 
+       @media screen and (max-width: 1300px) {
+            font-size: 30px;
+        }
+
        @media screen and (max-width: 1200px) {
-            font-size: 23px;
+            font-size: 25px;
         }
         @media screen and (max-width: 1000px) {
-            font-size: 20px;
+            font-size: 23px;
             width: 100%;
         }
 
@@ -573,6 +582,7 @@ const ProductCategoryRound = styled.div`
     color: #323030;
     font-weight: 500;
     font-size: 18px;
+    text-align: center;
   }
 
 `
