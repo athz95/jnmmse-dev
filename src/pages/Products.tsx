@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react'
+import  { useCallback, useEffect, useState } from 'react'
 import { BodyWrapper, MainWrapper } from '../components/commonStyles'
 import Header from '../components/common/Header'
 import { ContactDetailsWrapper } from './Homepage'
@@ -38,16 +38,18 @@ const Products = () => {
         });
     };
 
-
-    const handleCategoryFilter = (categoryId: any) => {
-        if (categoryId) {
-            const filteredProducts = filterProductsByCategoryTitle(products, categoryId);
-            setFilteredProducts(filteredProducts);
-        } else {
-            // Reset the filteredProducts array if no category is selected
-            setFilteredProducts(products);
-        }
-    };
+  const handleCategoryFilter = useCallback(
+    (categoryId:any) => {
+      if (categoryId) {
+        const filteredProducts = filterProductsByCategoryTitle(products, categoryId);
+        setFilteredProducts(filteredProducts);
+      } else {
+        // Reset the filteredProducts array if no category is selected
+        setFilteredProducts(products);
+      }
+    },
+    [products]
+  );
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -61,24 +63,21 @@ const Products = () => {
         }).catch((err) => console.error(err));
     }, []);
 
+
     useEffect(() => {
         handleCategoryFilter(id);
-    }, [id,products])
+    }, [id, handleCategoryFilter]);
 
 
     //pagination 
     const itemsPerPage = 9;
     const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     const currentItems = filteredProducts.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(filteredProducts.length / itemsPerPage);
 
     const handlePageClick = (event:any) => {
         window.scrollTo(10, 0);
         const newOffset = (event.selected * itemsPerPage) % filteredProducts.length;
-        console.log(
-          `User requested page number ${event.selected}, which is offset ${newOffset}`
-        );
         setItemOffset(newOffset);
       };
 
