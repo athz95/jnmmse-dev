@@ -395,6 +395,10 @@ export const ProductsRow = styled.div`
   width: 85% !important;
   height: auto;
   margin: 20px 0px;
+
+  &.slick-prev:before, .slick-next:before{
+    color: #0097df !important;
+  }
 `
 
 const ProductCategorySection = styled.div`
