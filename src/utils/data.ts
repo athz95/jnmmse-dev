@@ -41,7 +41,22 @@ export const searchQuery = (searchTerm: any) => {
     mobile,
     email,
     address,
-    whatsappNumber
+    whatsappNumber,
+    landlineNumber,
+    productsBrochure
+  }`;
+
+
+export const companyBrochureQuery = `*[_type == "companyInfo"] | order(_createdAt desc) {
+    "brochure": productsBrochure.asset->url
+}`;
+
+
+  export const homepageBanners = `*[_type == "homepageBanners"] | order(_createdAt desc) {
+    image,
+    alt,
+    redirectionLink,
+    type
   }`;
   
   

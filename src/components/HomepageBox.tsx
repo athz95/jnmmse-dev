@@ -24,7 +24,7 @@ const HomepageBoxWrap = styled.div`
     width: auto;
     max-width: 20vw;
     height: 200px;
-    max-height: 20vh;
+    max-height: 23vh;
     background-color: #ffffff;
     border-radius: 8px;
     position: relative;

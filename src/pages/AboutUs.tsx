@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { BodyWrapper, EdwoBtn, MainWrapper, SecHead } from '../components/commonStyles'
 import ContactDetails from '../components/common/ContactDetails'
@@ -11,14 +12,25 @@ import { useEffect } from 'react'
 import WhatsappIco from '../components/WhatsAppIco'
 import { Helmet } from 'react-helmet'
 import CompanySchema from '../components/common/CompanySchema'
+import { companyBrochureQuery } from '../utils/data'
+import { client } from '../client'
 
 type Props = {}
 
 const AboutUs = (props: Props) => {
+    const [companyBrochure, setCompanyBrochure] = useState([])
 
     useEffect(() => {
         window.scrollTo(0, 0);
     },[])
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        client.fetch(companyBrochureQuery).then((data) => {
+            // Reverse the order of the data array
+            setCompanyBrochure(data[0].brochure);
+        }).catch((err) => console.error(err));
+      },[])
 
 
     return (
@@ -47,7 +59,7 @@ const AboutUs = (props: Props) => {
                                 We are based in Dubai, United Arab Emirates, and actively involved in the business of supplying Laboratory, Medical and Surgical equipment, Pharmaceutical products and Disposables. <b>JNM MEDICAL SURGICAL EQUIPMENT TRADING LLC</b> has a strong client base both in the Government and Private Health Care sector.
                                 <br />  <br />
                                 Over the years we have progressively gained the attention and confidence of the main suppliers that senously take great care in the sales and services. Our goal is to expand <b>JNM MEDICAL SURGICAL EQUIPMENT TRADING LLC</b> to strategic and effective distributors to work with highly innovative products that meet the highest standards of quality which we were successful in the past. Thereby become the medical equipment provider of all of the Middle East.                        </p>
-                                <a href="https://drive.google.com/drive/folders/1UhIVZFUA3LfYnLd0zH-EpylqefA6ju73"><EdwoBtn>Browse Catalog</EdwoBtn></a>
+                                <a href={`${companyBrochure}?dl=`}><EdwoBtn>Browse Catalog</EdwoBtn></a>
                         </AboutLandingRight>
                         <AboutLandingLeft>
                             <img src={AboutLeftBg} alt="" />

@@ -43,6 +43,19 @@ export const BodyWrapper = styled.div`
     display: none;
   }
 
+  .desktopBannerSection{
+    display: block;
+  }
+
+  .mobileBannerSection{
+    display: none;
+  }
+
+  .container {
+    max-width: 1680px;
+    margin: auto;
+  }
+
   @media screen and (max-width: 1000px) {
     .mobileSidebar{
       display: block;
@@ -51,10 +64,15 @@ export const BodyWrapper = styled.div`
     .desktopSidebar{
        display: none;
      }
+
+     .mobileBannerSection{
+      display: block;
+    }
+
+    .desktopBannerSection{
+      display: none;
+   }
   }
-
-
-
 `
 export const DescText = styled.div`
    font-size: 15px;

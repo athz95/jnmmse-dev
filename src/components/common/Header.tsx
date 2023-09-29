@@ -7,6 +7,8 @@ import LogoImage from "../../images/jnmNewLogo.png"
 import { EdwoBtn } from '../commonStyles';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { client } from '../../client';
+import { companyBrochureQuery } from '../../utils/data';
 
 
 
@@ -20,12 +22,20 @@ const menuItems = [
 const Menu = () => {
   const [currPage, setCurrPage] = useState('');
   const [productsUrl, setProductsUrl] = useState('')
+  const [companyBrochure, setCompanyBrochure] = useState([])
   const location = useLocation();
 
   useEffect(() => {
     setCurrPage(location.pathname)
     setProductsUrl(location.pathname.split("/")[1])
   },[location.pathname])
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    client.fetch(companyBrochureQuery).then((data) => {
+        setCompanyBrochure(data[0].brochure);
+    }).catch((err) => console.error(err));
+  },[])
 
 
   return (
@@ -41,7 +51,7 @@ const Menu = () => {
                   )}
               </Link>
           ))}
-          <a href="https://drive.google.com/drive/folders/1UhIVZFUA3LfYnLd0zH-EpylqefA6ju73" rel="noreferrer" target="_blank" >
+          <a href={`${companyBrochure}?dl=`} rel="noreferrer" target="_blank" >
               <EdwoBtn size="md">Explore Catalog</EdwoBtn>
           </a>
       </>
@@ -52,12 +62,21 @@ const Menu = () => {
 const MobileMenu = () => {
   const [currPage, setCurrPage] = useState('');
   const [productsUrl, setProductsUrl] = useState('')
+  const [companyBrochure, setCompanyBrochure] = useState([])
   const location = useLocation();
 
   useEffect(() => {
     setCurrPage(location.pathname)
     setProductsUrl(location.pathname.split("/")[1])
   },[location.pathname])
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    client.fetch(companyBrochureQuery).then((data) => {
+        // Reverse the order of the data array
+        setCompanyBrochure(data);
+    }).catch((err) => console.error(err));
+  },[])
 
   return (
       <>
@@ -118,7 +137,7 @@ const HeaderWrapper = styled.div`
     position: fixed;
     top: 0px;
     z-index: 9999;
-    padding: 20px 0px;
+    padding: 0px;
 `
 const HeaderSubLeft = styled.div`
     width: 20%;
@@ -134,12 +153,11 @@ const HeaderSubWrap = styled.div`
     display : flex;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
     padding: 10px 0px;
     margin: auto;
-    background-color: #f1f6ffd1;
+    background-color: #ccdaf4d1;
     padding: 10px 20px;
-    border-radius: 10px;
 `
 const Logo = styled.img`
     width: 200px;
@@ -154,8 +172,8 @@ const Logo = styled.img`
 const HeaderSubRight = styled.div`
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    width: 80%;
+    justify-content: center;
+    width: 55%;
 
     & a {
         text-decoration: none;
