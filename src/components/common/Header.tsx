@@ -62,21 +62,12 @@ const Menu = () => {
 const MobileMenu = () => {
   const [currPage, setCurrPage] = useState('');
   const [productsUrl, setProductsUrl] = useState('')
-  const [companyBrochure, setCompanyBrochure] = useState([])
   const location = useLocation();
 
   useEffect(() => {
     setCurrPage(location.pathname)
     setProductsUrl(location.pathname.split("/")[1])
   },[location.pathname])
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    client.fetch(companyBrochureQuery).then((data) => {
-        // Reverse the order of the data array
-        setCompanyBrochure(data);
-    }).catch((err) => console.error(err));
-  },[])
 
   return (
       <>
