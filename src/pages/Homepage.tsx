@@ -140,7 +140,7 @@ const Homepage = () => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Leading Medical Equipment Supplier in Dubai, UAE | JNM Medical Trading LLC</title>
+        <title>JNM Medical Trading LLC | Leading Medical Equipment Supplier in Dubai, UAE</title>
         <meta name="description" content="JNM Medical Trading LLC is your trusted source for laboratory, medical, surgical equipment, pharmaceuticals, and disposables in Dubai, UAE. Serving both Government and Private Healthcare sectors" />
         <meta name="keywords" content="Medical equipment supplier Dubai, Surgical equipment supplier UAE, Pharmaceutical products Dubai, Laboratory equipment distributor UAE"></meta>
       </Helmet>
