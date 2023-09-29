@@ -51,7 +51,7 @@ const Menu = () => {
                   )}
               </Link>
           ))}
-          <a href={`${companyBrochure}?dl=`} rel="noreferrer" target="_blank" >
+          <a href={`${companyBrochure}?dl=`} rel="noreferrer" target="_blank">
               <EdwoBtn size="md">Explore Catalog</EdwoBtn>
           </a>
       </>
@@ -63,11 +63,19 @@ const MobileMenu = () => {
   const [currPage, setCurrPage] = useState('');
   const [productsUrl, setProductsUrl] = useState('')
   const location = useLocation();
+  const [companyBrochure, setCompanyBrochure] = useState([])
 
   useEffect(() => {
     setCurrPage(location.pathname)
     setProductsUrl(location.pathname.split("/")[1])
   },[location.pathname])
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    client.fetch(companyBrochureQuery).then((data) => {
+        setCompanyBrochure(data[0].brochure);
+    }).catch((err) => console.error(err));
+  },[])
 
   return (
       <>
@@ -82,6 +90,9 @@ const MobileMenu = () => {
                   )}
               </Link>
           ))}
+          <a href={`${companyBrochure}?dl=`} rel="noreferrer" target="_blank">
+              <EdwoBtn size="md">Explore Catalog</EdwoBtn>
+          </a>
       </>
   );
 };
@@ -147,7 +158,7 @@ const HeaderSubWrap = styled.div`
     width: 100%;
     padding: 10px 0px;
     margin: auto;
-    background-color: #ccdaf4d1;
+    background-color: aliceblue;
     padding: 10px 20px;
 `
 const Logo = styled.img`
