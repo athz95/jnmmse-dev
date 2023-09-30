@@ -535,6 +535,10 @@ const ProductCategorySection = styled.div`
      text-transform: uppercase;
      letter-spacing: 0.5px;
      margin: 1rem 0;
+
+    @media screen and (max-width: 767px) {
+      font-size: 28px;
+    }
   }
 
   & .product-range-wrap{
@@ -595,6 +599,10 @@ const ProductCategoryBox = styled.div`
     font-size: 20px;
     color: #000000;
     text-align: left;
+
+    @media screen and (max-width: 767px) {
+      font-size: 16px;
+    }
   }
 
   @media screen and (max-width: 767px) {
